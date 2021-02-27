@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+	<title>Like button</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<!-- JQuery CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Jquery Cookie CDN -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body>
+	<div class="toggle"></div>
+	
+	<!-- Javascript -->
+	<script>
+		$(document).ready(function($) {
+			let toggleSwitch = $(".toggle");
+			toggleSwitch.click(function () {
+				toggleSwitch.toggleClass("active");
+				$("body").toggleClass("night");
+				$.cookie("toggle", $(".toggle").hasClass("active"));
+			});
+			
+			if ($.cookie("toggle") == "true") {
+				toggleSwitch.addClass("active");
+				$("body").addClass("night");
+			}
+		});
+	</script>
+</body>
